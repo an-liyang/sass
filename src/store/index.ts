@@ -1,8 +1,16 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
 
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
-});
+  state: {
+    selectAddress: null
+  },
+  mutations: {
+    setSelectAddress(state, payload) {
+      state.selectAddress = payload
+    }
+  },
+  actions: {
+  },
+  modules: {
+  }
+})

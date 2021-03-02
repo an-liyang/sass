@@ -1,0 +1,246 @@
+/* 背景相关 */
+
+.bg-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 图片相关 */
+
+.img-responsive {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* flex相关 */
+
+.flex {
+    display: flex;
+}
+
+
+.iflex {
+    display: inline-flex;
+}
+
+.fw {
+    flex-wrap: wrap;
+}
+
+.fd {
+    flex-direction: column;
+}
+
+.fs {
+    justify-content: flex-start;
+}
+
+.fe {
+    justify-content: flex-end;
+}
+
+.fc {
+    justify-content: center;
+}
+
+.fb {
+    justify-content: space-between;
+}
+
+.fa {
+    justify-content: space-around;
+}
+
+.as {
+    align-items: flex-start;
+}
+
+.ac {
+    align-items: center;
+}
+
+.ae {
+    align-items: flex-end;
+}
+.f1{
+    flex: 1 ;
+}
+.f2{
+    flex: 2;
+}
+.f8{
+    flex: 8;
+}
+.f9{
+    flex: 9;
+}
+/* 其他样式 */
+
+.round {
+    border-radius: 50%;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+/* 浮动相关 */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* display相关 */
+
+.block {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 定位相关 */
+
+.pa {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.ps{
+    position: relative;
+}
+
+/* 间距相关 */
+
+.lh1 {
+    line-height: 1;
+}
+/* 高度 */
+
+/* 宽高 */
+
+.wp70{
+    width: 70%;
+}
+.wp30{
+    width: 30%;
+}
+.wp50{
+    width: 50%;
+}
+.wp100{
+    width: 100%;
+}
+.wp10{
+    width: 10%;
+}
+.wp20{
+    width: 20%;
+}
+.wp80{
+    width: 80%;
+}
+.wp90{
+    width: 90%;
+}
+// 边距相关
+.m20{
+    margin: $w20;
+}
+.mb20{
+   margin-bottom: $w20; 
+}
+.ml20 {
+    margin-left: $w20;
+}
+.mr20 {
+    margin-right: $w20;
+}
+.mt20{
+    margin-top: $w20;
+}
+
+.m10{
+    margin: $w10;
+}
+.ml10 {
+    margin-left: $w10;
+}
+.mr10 {
+    margin-right: $w10;
+}
+
+.pr10 {
+    padding-right: $w10;
+}
+.pb10{
+    padding-bottom: $w10;
+}
+.pl10 {
+    padding-left: $w10;
+}
+.p10{
+    padding: $w10;
+}
+
+.p20{
+    padding: $w20;
+}
+.pd20{
+    padding: $w20;
+}
+.pl20 {
+    padding-left: $w20;
+}
+.pr20 {
+    padding-right: $w20;
+}
+.pb20{
+    padding-bottom: $w20;
+}
+
+.pl30 {
+    padding-left: $w30;
+}
+.pr30 {
+    padding-right: $w30;
+}
+
+.pr16{
+    padding: $default-size;
+}
+
+
+
+
+
+/* 无数据 */
+.nodata {
+    position: relative;
+    min-height: 300px;
+    background: $white;
+}
+/*字体*/
+.fz24{
+    font-size: $max-size;
+}
+.hand{
+    cursor: pointer;
+}

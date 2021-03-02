@@ -1,0 +1,15 @@
+@charset "UTF-8";
+// 颜色
+@import 'color';
+// 大小
+@import "size";
+// 函数
+@import 'mixin';
+// 初始化样式 和 公共组件
+@import 'common';
+// 自定义样式
+@import "custom";
+//重置element样式
+@import "antResset";
+//组件和page样式
+@import "page";
