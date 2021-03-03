@@ -1,33 +1,32 @@
-import httpRequest from "@/utils/httpRequest";
-// 请求基础方法
-const ajaxFun = (url:string, data:any) => {
-  return httpRequest.request({
-    url: url,
-    data,
-    method: "POST",
-    headers: {
-      "X-Requested-With": "XMLHttpRequest",
-      "Content-Type": "application/json;charset=UTF-8"
+/**
+ * 基础数据 API 集合类
+ * 集成Abstract
+ * 
+ */
+import Abstract from '@/api/abstract';
+import { GetDemo ,PostDemo} from '@/api/types';
+
+class Basic extends Abstract {
+    
+    /**
+     * get示例
+     */
+    getDemo(params: GetDemo) {
+        return this.getReq({ url: 'Basic.GetDemo', params });
     }
-  });
-};
-const ajaxFunGet = (url:string, data:any) => {
-  return httpRequest.request({
-    url: url,
-    params: data,
-    method: "GET",
-    headers: {
-      // 'X-Requested-With': 'XMLHttpRequest',
-      "Content-Type": "application/x-www-form-urlencoded"
+    
+    /**
+     * post示例
+     */
+    getSqlIp(data: any) {
+        return this.postReq({ url: '/getSqlIp', data });
     }
-  });
-};
-/*获取基本配置*/
-export const config = () => {
-  return ajaxFunGet("/common/config",'');
-};
-/*获取实例*/
-export function getCookie(data: string){
-  return ajaxFun("/getSqlIp", data)
+    
 }
+
+// 单列模式返回对象
+const instance = new Basic();
+export default instance;
+
+
 

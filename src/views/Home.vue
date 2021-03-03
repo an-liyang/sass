@@ -6,7 +6,7 @@
       <YuiButton @click="handleClick()">自定义全局按钮</YuiButton>
     </div>
     <div class="m20">
-      <YuiButton @click="handlList()">ToDoList</YuiButton>
+      <YuiButton @click="getShiList()">ToDoList</YuiButton>
     </div>
     <div class="m20">
       <YuiSelect></YuiSelect>
@@ -15,7 +15,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import instance from "@/api/index";
+import { defineComponent, reactive, toRefs } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
@@ -33,13 +34,39 @@ export default defineComponent({
         duration: 1
       });
     }
+    // 响应式变量
+    const data = reactive({
+      formInline: {
+        sqlDateEsType: "beta",
+        sqlContext: "",
+        sqlRoundType: undefined,
+        dateBaseName: undefined,
+        tableName: undefined,
+        limite: 100
+      }
+    });
+    // 获取实例
+    const getShiList = () => {
+      instance.getSqlIp(data.formInline).then(res => {
+        if (res.data.code == 10000) {
+          message.success({
+            content: res.data.msg,
+            duration: 1
+          });
+        } else {
+          message.warning(res.data.msg);
+        }
+      });
+    };
     function handlList() {
       push("/todoList");
     }
 
     return {
       handleClick,
-      handlList
+      handlList,
+      getShiList,
+      ...toRefs(data)
     };
   }
 });
