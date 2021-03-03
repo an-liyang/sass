@@ -1,23 +1,34 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import main from "_c/layUI/layout.vue";
 import Home from "../views/Home.vue";
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: main,
+    children: [
+      {
+        path: "/",
+        component: Home,
+        name: "Home",
+        meta: { requireAuth: true }
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/",
+    name: "list",
+    component: main,
+    children: [
+      {
+        path: "/about",
+        name: "About",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/About.vue")
+      },
+    ]
   },
-  {
-    path: '/todoList',
-    name: 'TodoList',
-    component: () => import(/* webpackChunkName: "todo" */ '@/views/TodoList.vue')
-  },
+  
   // {
   //   path: '/address/list',
   //   name: 'Address',

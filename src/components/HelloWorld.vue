@@ -1,11 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <ul>
-      <li>
-        <router-link to="/todoList">Go To Todo-list</router-link>
-      </li>
-    </ul>
   </div>
 </template>
 

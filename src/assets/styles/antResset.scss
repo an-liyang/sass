@@ -1,6 +1,9 @@
 .layout{
-    .ant-layout-footer,.ant-layout,.ant-layout-sider,.ant-layout-header{
+    .ant-layout-footer,.ant-layout,.ant-layout-sider{
         background: $white;
+    }
+    .ant-layout-header{
+        background:$tips
     }
     
 }
