@@ -18,8 +18,8 @@ class Basic extends Abstract {
     /**
      * post示例
      */
-    getSqlIp(data: any) {
-        return this.postReq({ url: '/getSqlIp', data });
+    getSqlIp(data: object) {
+        return this.postReq({ url: 'Basic.PostDemo', data });
     }
     
 }

@@ -48,13 +48,14 @@ export default defineComponent({
     // 获取实例
     const getShiList = () => {
       instance.getSqlIp(data.formInline).then(res => {
-        if (res.data.code == 10000) {
+        console.log(res);
+        if (res.status) {
           message.success({
             content: res.data.msg,
             duration: 1
           });
         } else {
-          message.warning(res.data.msg);
+          message.warning(res.origin.msg);
         }
       });
     };

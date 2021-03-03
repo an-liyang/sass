@@ -42,9 +42,9 @@ export interface PostDemo {
     // }>;
     sqlDateEsType: number;
     sqlContext: number;
-    sqlRoundType: any;
-    dateBaseName: any;
-    tableName: any;
+    sqlRoundType?: string;
+    dateBaseName?: string;
+    tableName?: string;
     limite: number;
 }
 
