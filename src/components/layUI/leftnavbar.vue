@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-deprecated-slot-attribute */
 <template>
   <div class="leftnavbar">
     <!-- <a-button
@@ -9,50 +10,67 @@
       <MenuFoldOutlined v-else />
     </a-button> -->
     <a-menu
-      :openKeys="openKeys"
-      :selectedKeys="selectedKeys"
+      :default-selected-keys="['1']"
+      :default-open-keys="['sub1']"
       mode="inline"
       theme="dark"
-      :inlineCollapsed="collapsed"
-      @openChange="onOpenChange"
+      :selected-keys="[current]"
+      @click="handleClick"
     >
-      <template v-for="item in list" :key="item.url">
-        <template v-if="!item.children">
-          <a-menu-item :key="item.url" @click="chagePage">
-            <component :is="item.icons"></component>
-            <span>{{ item.label }}</span>
+      <a-menu-item key="1">
+        <a-icon type="mail" />
+        Navigation One
+      </a-menu-item>
+      <a-menu-item key="2">
+        <a-icon type="calendar" />
+        Navigation Two
+      </a-menu-item>
+      <a-sub-menu key="sub1">
+        <span><a-icon type="appstore" /><span>Navigation Three</span></span>
+        <a-menu-item key="3">
+          Option 3
+        </a-menu-item>
+        <a-menu-item key="4">
+          Option 4
+        </a-menu-item>
+        <a-sub-menu key="sub1-2" title="Submenu">
+          <a-menu-item key="5">
+            Option 5
           </a-menu-item>
-        </template>
-        <template v-else>
-          <a-sub-menu :key="item.value">
-            <template #title>
-              <component :is="item.icons"></component>
-              <span>{{ item.label }}</span>
-            </template>
-            <a-menu-item
-              v-for="item2 in item.children"
-              :key="item2.url"
-              @click="chagePage"
-            >
-              <span>{{ item2.label }}</span>
-            </a-menu-item>
-          </a-sub-menu>
-        </template>
-      </template>
+          <a-menu-item key="6">
+            Option 6
+          </a-menu-item>
+        </a-sub-menu>
+      </a-sub-menu>
+      <a-sub-menu key="sub2">
+        <span><a-icon type="setting" /><span>Navigation Four</span></span>
+        <a-menu-item key="7">
+          Option 7
+        </a-menu-item>
+        <a-menu-item key="8">
+          Option 8
+        </a-menu-item>
+        <a-menu-item key="9">
+          Option 9
+        </a-menu-item>
+        <a-menu-item key="10">
+          Option 10
+        </a-menu-item>
+      </a-sub-menu>
     </a-menu>
   </div>
 </template>
 <script>
-import { SearchOutlined, PieChartOutlined } from "@ant-design/icons-vue";
+// import { SearchOutlined, PieChartOutlined } from "@ant-design/icons-vue";
 
 import { navList } from "@/staticDatas/navListData.ts";
 import { toRefs, reactive, getCurrentInstance } from "vue";
 export default {
   name: "leftnavbar",
-  components: {
-    SearchOutlined,
-    PieChartOutlined
-  },
+  // components: {
+  //   SearchOutlined,
+  //   PieChartOutlined
+  // },
   setup() {
     // console.log(pros, context);
     // console.log(navList);
@@ -76,8 +94,8 @@ export default {
     return {
       list: navList,
       rootSubmenuKeys: navList,
-      openKeys: ["/Home"],
-      selectedKeys: ["/Home"],
+      openKeys: ["/home"],
+      current: 1,
       preOpenKeys: [1]
     };
   },
@@ -103,13 +121,11 @@ export default {
           this.openKeys = latestOpenKey ? [latestOpenKey] : [];
         }
       }
+    },
+    handleClick(e) {
+      console.log("click ", e);
+      this.current = e.key;
     }
-    // toggleCollapsed() {
-    //   this.collapsed = !this.collapsed;
-    //   console.log(this.collapsed);
-
-    //   this.openKeys = this.collapsed ? [] : this.preOpenKeys;
-    // }
   }
 };
 </script>

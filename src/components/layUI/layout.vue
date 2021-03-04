@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <!-- 页面lay布局 -->
-    <a-layout>
+    <a-layout style="height:100%">
       <!-- 头部 -->
       <header>
         <a-layout-header>
@@ -18,17 +18,18 @@
         <!-- 内容区 -->
         <a-layout-content class="pd20 tl">
           <router-view />
-        </a-layout-content>
-      </a-layout>
-      <!-- 底部 -->
-      <footer>
-        <a-layout-footer>
-          <div class="tc">
+          <!-- <div class="tc ">
             Copyright © 2004-2030 EP Inc, All Rights Reserved.
             北京比特易湃信息技术有限公司 版权所有
-          </div>
-        </a-layout-footer>
-      </footer>
+          </div> -->
+          <!-- 底部 -->
+          <!-- <footer>
+            <a-layout-footer>
+              
+            </a-layout-footer>
+          </footer> -->
+        </a-layout-content>
+      </a-layout>
     </a-layout>
   </div>
 </template>
@@ -56,21 +57,19 @@ export default {
 }
 .layout {
   min-width: 800px;
-}
-</style>
-<style lang="scss">
-.leftnavbar {
-  height: 100%;
-  ul {
-    // min-height: 500px;
-    height: 100%;
-  }
+  height: inherit;
 }
 </style>
 <style lang="scss">
 .layout {
   .ant-layout-sider {
     height: 100%;
+  }
+  .leftnavbar {
+    height: 100%;
+    ul {
+      height: 100%;
+    }
   }
 }
 </style>
